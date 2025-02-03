@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import rospy, os, sys, math, time
 import numpy as np
 import cv2
