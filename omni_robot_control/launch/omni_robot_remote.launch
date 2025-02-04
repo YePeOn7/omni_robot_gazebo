@@ -1,0 +1,3 @@
+<launch>
+  <node name="robot_omni_remote" pkg="omni_robot_control" type="remote.py" output="screen"/>
+</launch>

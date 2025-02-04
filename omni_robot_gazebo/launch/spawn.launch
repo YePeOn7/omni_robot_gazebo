@@ -1,0 +1,19 @@
+<launch>
+  <!-- BEGIN ROBOT 0-->
+  <arg name="robot_name" default="robot0"/>
+  
+  <group ns="robot0">
+      <!-- Load the URDF into the ROS Parameter Server -->
+      <param name="robot_description" command="$(find xacro)/xacro '$(find omni_robot_description)/robots/omni_robot.urdf.xacro'" />
+  
+      <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
+      <node name="urdf_spawner0" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+  		args="-urdf -model omni_robot0 -param robot_description"/>
+
+      <!-- ros_control motoman launch file -->
+      <include file="$(find omni_robot_control)/launch/omni_robot_control.launch">
+        <arg name="robot_name" value="$(arg robot_name)" />
+      </include>
+  </group>
+
+</launch>
