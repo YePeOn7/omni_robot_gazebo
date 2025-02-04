@@ -21,12 +21,20 @@ catkin_make
 source devel/setup.bash
 ```
 
-After that you can run the simulation as follow
+After that you can run several simulation
+
+### 1. Line following
+
+Provide simulation the robot that following the line track
 
 ```bash
-cd ~/catkin_ws
-$ source devel/setup.bash
-$ roslaunch omni_robot_gazebo omni_world.launch
+roslaunch omni_robot_gazebo omni_world.launch
+```
+
+### 2. Manual Teleop on empty world
+
+```bash
+roslaunch omni_robot_gazebo omni_empty_world.launch
 ```
 
 ## Special Thanks
