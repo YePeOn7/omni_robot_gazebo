@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+	<xacro:include filename="$(find omni_robot_description)/urdf/laser/laser.gazebo.xacro" />
+
+	<xacro:macro name="laser" params="parent xyz rpy">
+		<link name="laser_scan">
+			<visual>
+				<geometry>
+					<cylinder radius="0.02" length="0.01" />
+				</geometry>
+				<material name="red">
+					<color rgba="1 0 0 1" />
+				</material>
+			</visual>
+		</link>
+
+		<joint name="laser_joint" type="fixed">
+			<parent link="${parent}" />
+			<child link="laser_scan" />
+			<origin xyz="${xyz}" rpy="${rpy}" />
+		</joint>
+
+		<xacro:laser_gazebo />
+	</xacro:macro>
+
+</robot>

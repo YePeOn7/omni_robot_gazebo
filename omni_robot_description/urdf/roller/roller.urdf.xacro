@@ -1,53 +1,55 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:include filename="$(find omni_robot_description)/urdf/roller/roller.transmission.xacro"/>
-  <xacro:include filename="$(find omni_robot_description)/urdf/roller/roller.gazebo.xacro"/>
-  
-  <xacro:macro name="roller_v0" params="prefix parent *joint_origin *joint_axis">
-	<joint name="${prefix}_roller_joint" type="continuous">
-	  <xacro:insert_block name="joint_origin"/>
-	  <parent link="${parent}"/>
-	  <child link="${prefix}_roller_link"/>
-	  <xacro:insert_block name="joint_axis"/>
-	</joint>
+  <xacro:include filename="$(find omni_robot_description)/urdf/roller/roller.transmission.xacro" />
+  <xacro:include filename="$(find omni_robot_description)/urdf/roller/roller.gazebo.xacro" />
 
-	<link name="${prefix}_roller_link">
-	  <visual>
-		<geometry>
-		  <mesh filename="package://omni_robot_description/meshes/DAE/roller/omni_roller.dae"/>
-		</geometry>
-	  </visual>
-	  <collision>
-		<geometry>
-		  <mesh filename="package://omni_robot_description/meshes/STL/roller/roller.stl"/>
-		</geometry>
-	  </collision>
-	  <inertial>
-		<origin xyz="0.0 0.0 0.0"/>
-		<mass value="0.009"/>
-		<inertia ixx="0.000001257" ixy="0" ixz="0" iyy="0.000000342" iyz="0" izz="0.000001257"/>
-	  </inertial>
-          <surface>
-            <friction>
-              <ode>
-                <mu1>1.2</mu1>
-                <mu2>1.2</mu2>
-                <kp>1e15</kp>
-                <kd>1e13</kd>
-              </ode>
-            </friction>
-            <bounce>
-              <restitution_coefficient>0.01</restitution_coefficient>
-              <threshold>0</threshold>
-            </bounce>
-            <contact>
-              <ode>
-                <max_vel>10</max_vel>
-              </ode>
-            </contact>
-          </surface>
-	</link>
+  <xacro:macro name="roller_v0" params="prefix parent *joint_origin *joint_axis">
+    <joint name="${prefix}_roller_joint" type="continuous">
+      <xacro:insert_block name="joint_origin" />
+      <parent link="${parent}" />
+      <child link="${prefix}_roller_link" />
+      <xacro:insert_block name="joint_axis" />
+    </joint>
+
+    <link name="${prefix}_roller_link">
+      <visual>
+        <geometry>
+          <mesh filename="package://omni_robot_description/meshes/DAE/roller/omni_roller.dae" />
+        </geometry>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://omni_robot_description/meshes/STL/roller/roller.stl" />
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="0.0 0.0 0.0" />
+        <mass value="0.009" />
+        <inertia ixx="0.000001257" ixy="0" ixz="0" iyy="0.000000342" iyz="0" izz="0.000001257" />
+      </inertial>
+      <surface>
+        <friction>
+          <ode>
+            <mu1>1.2</mu1>
+            <mu2>1.2</mu2>
+            <kp>1e15</kp>
+            <kd>1e13</kd>
+          </ode>
+        </friction>
+        <bounce>
+          <restitution_coefficient>0.01</restitution_coefficient>
+          <threshold>0</threshold>
+        </bounce>
+        <contact>
+          <ode>
+            <max_vel>10</max_vel>
+          </ode>
+        </contact>
+      </surface>
+    </link>
+
+    <xacro:roller_trans_v0 prefix="${prefix}" />
   </xacro:macro>
-  
+
 </robot>

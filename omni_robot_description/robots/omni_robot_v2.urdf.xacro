@@ -1,0 +1,218 @@
+<?xml version="1.0"?>
+<robot name="omni_robot" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- xacro property -->
+  <xacro:property name="M_PI" value="3.14159274" />
+
+  <!-- xacro include file -->
+  <xacro:include filename="$(find omni_robot_description)/urdf/base/base.urdf.xacro" />  <!--base-->
+  <xacro:include filename="$(find omni_robot_description)/urdf/base_layer/base_layer.urdf.xacro" />  <!--base-->
+  <xacro:include filename="$(find omni_robot_description)/urdf/camera/camera.urdf.xacro" />   <!--camera-->
+  <xacro:include filename="$(find omni_robot_description)/urdf/omni_wheel/omni_wheel.urdf.xacro" />   <!--omni-wheel-->
+  <xacro:include filename="$(find omni_robot_description)/urdf/roller/roller.urdf.xacro" />   <!--roller-->
+  <xacro:include filename="$(find omni_robot_description)/urdf/IMU/IMU.urdf.xacro" />   <!--IMU-->
+  <xacro:include filename="$(find omni_robot_description)/urdf/laser/laser.urdf.xacro" />   Laser
+  <xacro:include filename="$(find omni_robot_description)/urdf/camera_bracket/camera_bracket.urdf.xacro" />   <!--camera_bracket-->
+
+  <!-- =============== Link & Joint =============== -->
+  <!-- Base -->
+  <link name="base_footprint" />
+  <xacro:base_v0 parent="base_footprint">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </xacro:base_v0>
+
+  <!-- Base Layer -->
+  <xacro:base_layer prefix="first" parent="base_link" xyz="0 0 0.125" rpy="0 0 0" />
+
+  <!-- Wheel -->
+  <!-- 1st wheel -->
+  <xacro:wheel_v0 prefix="first" parent="base_link">
+    <origin xyz="0 0.088 -0.01" rpy="0 0 3.141593" />
+    <axis xyz="0 1 0" />
+  </xacro:wheel_v0>
+
+  <xacro:roller_v0 prefix="r1_F" parent="first_wheel_link">
+    <origin xyz="0 -0.006 0.024063" rpy="0 0 1.570796" />
+    <axis xyz="0 1 0" />
+  </xacro:roller_v0>
+  <xacro:roller_v0 prefix="r2_F" parent="first_wheel_link">
+    <origin xyz="-0.0228853 -0.006 0.0074359" rpy="-1.256637 0 1.570796" />
+    <axis xyz="0 1 0" />
+  </xacro:roller_v0>
+  <xacro:roller_v0 prefix="r3_F" parent="first_wheel_link">
+    <origin xyz="-0.0141439 -0.006 -0.0194674" rpy="-2.513274 0 1.570796" />
+    <axis xyz="0 1 0" />
+  </xacro:roller_v0>
+  <xacro:roller_v0 prefix="r4_F" parent="first_wheel_link">
+    <origin xyz="0.0141439 -0.006 -0.0194674" rpy="-3.769911 0 1.570796" />
+    <axis xyz="0 1 0" />
+  </xacro:roller_v0>
+  <xacro:roller_v0 prefix="r5_F" parent="first_wheel_link">
+    <origin xyz="0.0228853 -0.006 0.0074359" rpy="-5.026548 0 1.570796" />
+    <axis xyz="0 1 0" />
+  </xacro:roller_v0>
+
+  <xacro:roller_v0 prefix="r6_F" parent="first_wheel_link">
+    <origin xyz="0 0.006 -0.024063" rpy="0 0 1.570796" />
+    <axis xyz="0 1 0" />
+  </xacro:roller_v0>
+  <xacro:roller_v0 prefix="r7_F" parent="first_wheel_link">
+    <origin xyz="0.0228853 0.006 -0.0074359" rpy="-1.256637 0 1.570796" />
+    <axis xyz="0 1 0" />
+  </xacro:roller_v0>
+  <xacro:roller_v0 prefix="r8_F" parent="first_wheel_link">
+    <origin xyz="0.0141439 0.006 0.0194674" rpy="-2.513274 0 1.570796" />
+    <axis xyz="0 1 0" />
+  </xacro:roller_v0>
+  <xacro:roller_v0 prefix="r9_F" parent="first_wheel_link">
+    <origin xyz="-0.0141439 0.006 0.0194674" rpy="-3.769911 0 1.570796" />
+    <axis xyz="0 1 0" />
+  </xacro:roller_v0>
+  <xacro:roller_v0 prefix="r10_F" parent="first_wheel_link">
+    <origin xyz="-0.0228853 0.006 -0.0074359" rpy="-5.026548 0 1.570796" />
+    <axis xyz="0 1 0" />
+  </xacro:roller_v0>
+
+  <!-- 2nd wheel -->
+  <xacro:wheel_v0 prefix="second" parent="base_link">
+    <origin xyz="-0.0762 -0.044 -0.01" rpy="0 0 5.235988" />
+    <axis xyz="0 1 0" />
+  </xacro:wheel_v0>
+
+  <xacro:roller_v0 prefix="r1_S" parent="second_wheel_link">
+    <origin xyz="0 -0.006 0.024063" rpy="0 0 1.570796" />
+    <axis xyz="0 1 0" />
+  </xacro:roller_v0>
+  <xacro:roller_v0 prefix="r2_S" parent="second_wheel_link">
+    <origin xyz="-0.0228853 -0.006 0.0074359" rpy="-1.256637 0 1.570796" />
+    <axis xyz="0 1 0" />
+  </xacro:roller_v0>
+  <xacro:roller_v0 prefix="r3_S" parent="second_wheel_link">
+    <origin xyz="-0.0141439 -0.006 -0.0194674" rpy="-2.513274 0 1.570796" />
+    <axis xyz="0 1 0" />
+  </xacro:roller_v0>
+  <xacro:roller_v0 prefix="r4_S" parent="second_wheel_link">
+    <origin xyz="0.0141439 -0.006 -0.0194674" rpy="-3.769911 0 1.570796" />
+    <axis xyz="0 1 0" />
+  </xacro:roller_v0>
+  <xacro:roller_v0 prefix="r5_S" parent="second_wheel_link">
+    <origin xyz="0.0228853 -0.006 0.0074359" rpy="-5.026548 0 1.570796" />
+    <axis xyz="0 1 0" />
+  </xacro:roller_v0>
+
+  <xacro:roller_v0 prefix="r6_S" parent="second_wheel_link">
+    <origin xyz="0 0.006 -0.024063" rpy="0 0 1.570796" />
+    <axis xyz="0 1 0" />
+  </xacro:roller_v0>
+  <xacro:roller_v0 prefix="r7_S" parent="second_wheel_link">
+    <origin xyz="0.0228853 0.006 -0.0074359" rpy="-1.256637 0 1.570796" />
+    <axis xyz="0 1 0" />
+  </xacro:roller_v0>
+  <xacro:roller_v0 prefix="r8_S" parent="second_wheel_link">
+    <origin xyz="0.0141439 0.006 0.0194674" rpy="-2.513274 0 1.570796" />
+    <axis xyz="0 1 0" />
+  </xacro:roller_v0>
+  <xacro:roller_v0 prefix="r9_S" parent="second_wheel_link">
+    <origin xyz="-0.0141439 0.006 0.0194674" rpy="-3.769911 0 1.570796" />
+    <axis xyz="0 1 0" />
+  </xacro:roller_v0>
+  <xacro:roller_v0 prefix="r10_S" parent="second_wheel_link">
+    <origin xyz="-0.0228853 0.006 -0.0074359" rpy="-5.026548 0 1.570796" />
+    <axis xyz="0 1 0" />
+  </xacro:roller_v0>
+
+  <!-- 3rd wheel -->
+  <xacro:wheel_v0 prefix="third" parent="base_link">
+    <origin xyz="0.0762 -0.044 -0.01" rpy="0 0 1.047197" />
+    <axis xyz="0 1 0" />
+  </xacro:wheel_v0>
+
+  <xacro:roller_v0 prefix="r1_T" parent="third_wheel_link">
+    <origin xyz="0 -0.006 0.024063" rpy="0 0 1.570796" />
+    <axis xyz="0 1 0" />
+  </xacro:roller_v0>
+  <xacro:roller_v0 prefix="r2_T" parent="third_wheel_link">
+    <origin xyz="-0.0228853 -0.006 0.0074359" rpy="-1.256637 0 1.570796" />
+    <axis xyz="0 1 0" />
+  </xacro:roller_v0>
+  <xacro:roller_v0 prefix="r3_T" parent="third_wheel_link">
+    <origin xyz="-0.0141439 -0.006 -0.0194674" rpy="-2.513274 0 1.570796" />
+    <axis xyz="0 1 0" />
+  </xacro:roller_v0>
+  <xacro:roller_v0 prefix="r4_T" parent="third_wheel_link">
+    <origin xyz="0.0141439 -0.006 -0.0194674" rpy="-3.769911 0 1.570796" />
+    <axis xyz="0 1 0" />
+  </xacro:roller_v0>
+  <xacro:roller_v0 prefix="r5_T" parent="third_wheel_link">
+    <origin xyz="0.0228853 -0.006 0.0074359" rpy="-5.026548 0 1.570796" />
+    <axis xyz="0 1 0" />
+  </xacro:roller_v0>
+
+  <xacro:roller_v0 prefix="r6_T" parent="third_wheel_link">
+    <origin xyz="0 0.006 -0.024063" rpy="0 0 1.570796" />
+    <axis xyz="0 1 0" />
+  </xacro:roller_v0>
+  <xacro:roller_v0 prefix="r7_T" parent="third_wheel_link">
+    <origin xyz="0.0228853 0.006 -0.0074359" rpy="-1.256637 0 1.570796" />
+    <axis xyz="0 1 0" />
+  </xacro:roller_v0>
+  <xacro:roller_v0 prefix="r8_T" parent="third_wheel_link">
+    <origin xyz="0.0141439 0.006 0.0194674" rpy="-2.513274 0 1.570796" />
+    <axis xyz="0 1 0" />
+  </xacro:roller_v0>
+  <xacro:roller_v0 prefix="r9_T" parent="third_wheel_link">
+    <origin xyz="-0.0141439 0.006 0.0194674" rpy="-3.769911 0 1.570796" />
+    <axis xyz="0 1 0" />
+  </xacro:roller_v0>
+  <xacro:roller_v0 prefix="r10_T" parent="third_wheel_link">
+    <origin xyz="-0.0228853 0.006 -0.0074359" rpy="-5.026548 0 1.570796" />
+    <axis xyz="0 1 0" />
+  </xacro:roller_v0>
+
+  <!-- IMU -->
+  <xacro:imu_v0 parent="base_link">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </xacro:imu_v0>
+
+  <!-- camera -->
+  <xacro:camera_v0 prefix="main" parent="main_camera_bracket_link">
+    <origin xyz="0 0 0.061" rpy="0 0.5236 0" />
+  </xacro:camera_v0>
+
+  <!-- camera bracket-->
+  <xacro:camera_bracket_v0 prefix="main" parent="base_link">
+    <origin xyz="0 0 0.039" rpy="0 0 1.570796" />
+    <axis xyz="0 0 1" />
+  </xacro:camera_bracket_v0>
+
+  <!-- Laser -->
+  <xacro:laser parent="first_base_layer_link" xyz="0 0 0.0065" rpy="0 0 0" />
+
+  <!-- ===============  Transmission =============== -->
+  <xacro:wheel_trans_v0 prefix="first" />
+  <xacro:wheel_trans_v0 prefix="second" />
+  <xacro:wheel_trans_v0 prefix="third" />
+  <xacro:camera_bracket_trans_v0 prefix="main" />
+  <!-- =============== Gazebo =============== -->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+    </plugin>
+  </gazebo>
+
+  <!-- Base -->
+  <xacro:base_gazebo_v0 />
+
+  <!-- Wheel -->
+  <xacro:wheel_gazebo_v0 prefix="first" />
+  <xacro:wheel_gazebo_v0 prefix="second" />
+  <xacro:wheel_gazebo_v0 prefix="third" />
+
+  <!-- IMU -->
+  <xacro:imu_gazebo_v0 />
+
+  <!-- camera -->
+  <xacro:camera_gazebo_v0 prefix="main" />
+
+  <!-- camera -->
+  <xacro:camera_bracket_gazebo_v0 prefix="main" />
+</robot>

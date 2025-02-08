@@ -1,0 +1,26 @@
+<launch>
+  <arg name="model" default="$(find omni_robot_description)/robots/omni_robot_v2.urdf.xacro"/>
+  <arg name="paused" default="false"/>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="gui" default="true"/>
+  <arg name="headless" default="false"/>
+  <arg name="debug" default="false"/>
+  <arg name="init_pose"/>
+  <arg name="robot_name" value="robot0" />
+  <arg name="joy_dev0" default="/dev/input/js0" />
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="debug" value="$(arg debug)" />
+    <arg name="gui" value="$(arg gui)" />
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+    <arg name="headless" value="$(arg headless)"/>
+  </include>
+
+  <!-- <include file="$(find omni_robot_gazebo)/launch/spawn_v2.launch">
+    <arg name="robot_name" value="$(arg robot_name)" />
+  </include>
+
+  <include file="$(find omni_robot_control)/launch/omni_robot_remote.launch"/> -->
+
+</launch>

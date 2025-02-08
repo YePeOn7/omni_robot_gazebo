@@ -4,8 +4,11 @@
     <transmission name="${prefix}_roller_trans">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${prefix}_roller_joint">
-	<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       </joint>
+      <actuator name="${prefix}_roller_motor">
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
     </transmission>
   </xacro:macro>
 </robot>
