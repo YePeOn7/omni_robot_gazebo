@@ -4,7 +4,7 @@ from geometry_msgs.msg import Twist
 from std_msgs.msg import Float64
 from kinematics import OmniKinematics
 
-GAIN = 0.5 # use this to adjust the speed of the robot to match the real speed
+GAIN = 1 # use this to adjust the speed of the robot to match the real speed
 ROBOT_RADIUS = 0.088
 WHEEL_RADIUS = 0.028
 omni = OmniKinematics(3, ROBOT_RADIUS, WHEEL_RADIUS)

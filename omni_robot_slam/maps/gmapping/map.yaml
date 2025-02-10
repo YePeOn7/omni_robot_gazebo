@@ -1,4 +1,4 @@
-image: /home/yp7/catkin_ws/src/Omni_wheel_robot_GazeboSim/omni_robot_slam/maps/gmapping/gmapping_map.pgm
+image: map.pgm
 resolution: 0.050000
 origin: [-10.000000, -10.000000, 0.000000]
 negate: 0

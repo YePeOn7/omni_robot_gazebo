@@ -38,6 +38,7 @@ roslaunch omni_robot_gazebo omni_empty_world.launch
 ```
 
 ### 3. SLAM Gmapping
+
 Start the SLAM gmapping by using the following command
 
 ```bash
