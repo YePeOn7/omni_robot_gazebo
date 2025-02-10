@@ -37,6 +37,31 @@ roslaunch omni_robot_gazebo omni_world.launch
 roslaunch omni_robot_gazebo omni_empty_world.launch
 ```
 
+### 3. SLAM Gmapping
+Start the SLAM gmapping by using the following command
+
+```bash
+# run gazebo maze
+roslaunch omni_robot_gazebo omni_maze.launch
+
+# run gmapping 
+roslaunch omni_robot_slam omni_robot_gmapping.launch
+```
+
+You can use teleop to control the robot movement
+
+```bash
+rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+```
+
+![Demo GIF](gif/gmapping.gif)
+
+After the mapping process done you can use the following command to save the map
+
+```bash
+rosrun map_server map_saver -f <location>
+```
+
 ## Special Thanks
 
 - [robot mania](https://www.youtube.com/@robotmania8896) (original author)
