@@ -1,0 +1,7 @@
+image: /home/yp7/catkin_ws/src/Omni_wheel_robot_GazeboSim/omni_robot_slam/maps/gmapping/gmapping_map.pgm
+resolution: 0.050000
+origin: [-10.000000, -10.000000, 0.000000]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
+

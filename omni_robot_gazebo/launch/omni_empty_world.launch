@@ -21,6 +21,8 @@
     <arg name="robot_name" value="$(arg robot_name)" />
   </include>
 
-  <include file="$(find omni_robot_control)launch/omni_robot_remote.launch"/>
+  <include file="$(find omni_robot_control)/launch/omni_robot_remote.launch">
+    <arg name="robot_name" value="$(arg robot_name)" />
+  </include>
 
 </launch>

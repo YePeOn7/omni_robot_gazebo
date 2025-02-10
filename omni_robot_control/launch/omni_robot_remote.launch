@@ -1,3 +1,7 @@
 <launch>
-  <node name="robot_omni_remote" pkg="omni_robot_control" type="remote.py" output="screen"/>
+  <arg name="robot_name" default="robot_omni" />
+
+  <node name="robot_omni_remote" pkg="omni_robot_control" type="remote.py" output="screen" >
+    <param name="robot_name" value="$(arg robot_name)" />
+  </node>
 </launch>
