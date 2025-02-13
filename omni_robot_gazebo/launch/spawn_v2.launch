@@ -1,6 +1,6 @@
 <launch>
-  <!-- BEGIN ROBOT 0-->
-  <arg name="robot_name" default="robot0"/>
+  <!-- BEGIN ROBOT OMNI -->
+  <arg name="robot_name" default="robot_omni"/>
   
   <group ns="$(arg robot_name)" >
       <!-- Load the URDF into the ROS Parameter Server -->

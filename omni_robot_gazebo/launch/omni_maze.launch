@@ -18,12 +18,16 @@
     <arg name="headless" value="$(arg headless)"/>
   </include>
 
-  <include file="$(find omni_robot_gazebo)/launch/spawn_v2.launch">
+  <include file="$(find omni_robot_control)/launch/omni_robot_remote.launch"></include>
+  <!-- <include file="$(find omni_robot_gazebo)/launch/spawn_v2.launch">
     <arg name="robot_name" value="$(arg robot_name)" />
-  </include>
+  </include> -->
 
-  <include file="$(find omni_robot_control)/launch/omni_robot_remote.launch">
+  <!-- <param name="robot_description" command="$(find xacro)/xacro $(find turtlebot3_description)/urdf/turtlebot3_waffle.urdf.xacro" />
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-urdf -model turtlebot3 -z 0.5 -param robot_description" /> -->
+
+  <!-- <include file="$(find omni_robot_control)/launch/omni_robot_remote.launch">
     <arg name="robot_name" value="$(arg robot_name)" />
-  </include>
+  </include> -->
 
 </launch>

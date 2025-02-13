@@ -30,7 +30,7 @@ public:
         nh.param("L", L, 0.088);
 
         double C = 2 * r / sqrt(3);
-        double h = 0.0;
+        double h = 0 * M_PI / 180;
         mOd[0][0] = C * (cos(2 * M_PI / 3 + h) - (cos(2 * M_PI / 3 + h) - cos(h)) / 3);
         mOd[0][1] = C * (-cos(h) - (cos(2 * M_PI / 3 + h) - cos(h)) / 3);
         mOd[0][2] = C * (-(cos(2 * M_PI / 3 + h) - cos(h)) / 3);
@@ -100,7 +100,7 @@ public:
 
         // Publish odometry
         // ROS_INFO("vx: %.2f vy: %.2f  x: %2f, y: %2f, yaw: %2f", Vx, Vy, x, y, yaw);
-        // ROS_INFO("%.2f %.2f %.2f %.2f %.2f %.2f %.2f %.2f", x, y, w1, w2, w3, Vx, Vy, yaw);
+        // ROS_INFO("%.2f %.2f %.2f %.2f %.2f %.2f %.2f %.2f", x, y, w1, w2, w3, Vx, Vy, yaw * 180 / M_PI);
         publishOdometry(Vx, Vy, yaw, current_time);
     }
 
