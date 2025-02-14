@@ -39,7 +39,7 @@ roslaunch omni_robot_gazebo omni_empty_world.launch
 
 ### 3. SLAM Gmapping
 
-Start the SLAM gmapping by using the following command
+Start the SLAM gmapping by using the following command (Please open in separate console)
 
 ```bash
 # run gazebo maze
@@ -65,10 +65,13 @@ rosrun map_server map_saver -f <location>
 
 ### 4. Navigation (Set Goal Through Rviz)
 
-Open Gazebo and RViz by using the following command
+Open Gazebo and RViz by using the following command (Please open in separate console)
 
 ```bash
+# run gazebo maze
 roslaunch omni_robot_gazebo omni_maze.launch
+
+# run navigation with rviz
 roslaunch omni_robot_navigation omni_robot_navigation_rviz.launch
 ```
 
