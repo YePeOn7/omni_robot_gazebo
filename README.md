@@ -55,7 +55,7 @@ You can use teleop to control the robot movement
 rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 ```
 
-![Demo GIF](gif/gmapping.gif)
+![gmapping mapping demo](gif/gmapping.gif)
 
 After the mapping process done you can use the following command to save the map
 
@@ -63,7 +63,20 @@ After the mapping process done you can use the following command to save the map
 rosrun map_server map_saver -f <location>
 ```
 
+### 4. Navigation (Set Goal Through Rviz)
+
+Open Gazebo and RViz by using the following command
+
+```bash
+roslaunch omni_robot_gazebo omni_maze.launch
+roslaunch omni_robot_navigation omni_robot_navigation_rviz.launch
+```
+
+In the the Rviz, please use the **2D Nav Goal** tool to select the goal in the map and the robot will navigate there
+
+![Navigarion Demo](gif/nav.gif)
+
 ## Special Thanks
 
-- [robot mania](https://www.youtube.com/@robotmania8896) (original author)
+- [robot mania](https://www.youtube.com/@robotmania8896)
 - [KairongWu](https://github.com/KairongWu)

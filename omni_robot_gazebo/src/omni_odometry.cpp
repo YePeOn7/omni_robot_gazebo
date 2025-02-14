@@ -107,6 +107,7 @@ public:
     void imuCallback(const sensor_msgs::Imu::ConstPtr &msg)
     {
         // Convert quaternion to yaw (heading)
+        w = msg->angular_velocity.z;
         tf::Quaternion q(msg->orientation.x, msg->orientation.y, msg->orientation.z, msg->orientation.w);
         tf::Matrix3x3 m(q);
         double roll, pitch;
@@ -119,6 +120,7 @@ private:
     tf::TransformBroadcaster odom_broadcaster;
 
     double x, y, yaw;
+    double w;
     double r; // Wheel radius
     double L; // Base radius
     double tetha;
@@ -141,7 +143,7 @@ private:
         // Velocity
         odom.twist.twist.linear.x = Vx;
         odom.twist.twist.linear.y = Vy;
-        odom.twist.twist.angular.z = yaw;
+        odom.twist.twist.angular.z = w;
 
         // Publish odometry message
         odom_pub.publish(odom);

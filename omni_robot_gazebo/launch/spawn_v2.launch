@@ -8,7 +8,7 @@
   
       <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
       <node name="urdf_spawner0" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
-  		args="-urdf -model omni_robot0 -param robot_description -z 0.2"/>
+  		args="-urdf -model omni_robot0 -param robot_description -z 0.2 -Y 1.57"/>
 
       <!-- ros_control launch file -->
       <include file="$(find omni_robot_control)/launch/omni_robot_control.launch">

@@ -5,7 +5,7 @@
   <xacro:property name="M_PI" value="3.14159274" />
 
   <!-- xacro include file -->
-  <xacro:include filename="$(find omni_robot_description)/urdf/base/base_v1.urdf.xacro" />  <!--base-->
+  <xacro:include filename="$(find omni_robot_description)/urdf/base/base.urdf.xacro" />  <!--base-->
   <xacro:include filename="$(find omni_robot_description)/urdf/base_layer/base_layer.urdf.xacro" />  <!--base-->
   <xacro:include filename="$(find omni_robot_description)/urdf/camera/camera.urdf.xacro" />   <!--camera-->
   <xacro:include filename="$(find omni_robot_description)/urdf/omni_wheel/omni_wheel.urdf.xacro" />   <!--omni-wheel-->
@@ -17,10 +17,10 @@
   <!-- =============== Link & Joint =============== -->
   <!-- Base -->
   <link name="base_footprint" />
-  <!-- <xacro:base_v0 parent="base_footprint">
-    <origin xyz="0 0 0" rpy="0 0 0" />
-  </xacro:base_v0> -->
-  <xacro:base_v1 parent="base_footprint" xyz="0 0 0" rpy="0 0 ${-M_PI/2}" />
+  <xacro:base_v0 parent="base_footprint">
+    <origin xyz="0 0 0" rpy="0 0 ${-M_PI/2}" />
+  </xacro:base_v0>
+  <!-- <xacro:base_v1 parent="base_footprint" xyz="0 0 0" rpy="0 0 ${-M_PI/2}" /> -->
 
 
   <!-- Base Layer -->
@@ -29,7 +29,7 @@
 
   <!-- Wheel -->
   <!-- 1st wheel -->
-  <xacro:wheel_v0 prefix="first" parent="base_link_ext">
+  <xacro:wheel_v0 prefix="first" parent="base_link">
     <origin xyz="0 0.088 -0.01" rpy="0 0 3.141593" />
     <axis xyz="0 1 0" />
   </xacro:wheel_v0>
@@ -77,7 +77,7 @@
   </xacro:roller_v0>
 
   <!-- 2nd wheel -->
-  <xacro:wheel_v0 prefix="second" parent="base_link_ext">
+  <xacro:wheel_v0 prefix="second" parent="base_link">
     <origin xyz="-0.0762 -0.044 -0.01" rpy="0 0 5.235988" />
     <axis xyz="0 1 0" />
   </xacro:wheel_v0>
@@ -125,7 +125,7 @@
   </xacro:roller_v0>
 
   <!-- 3rd wheel -->
-  <xacro:wheel_v0 prefix="third" parent="base_link_ext">
+  <xacro:wheel_v0 prefix="third" parent="base_link">
     <origin xyz="0.0762 -0.044 -0.01" rpy="0 0 1.047197" />
     <axis xyz="0 1 0" />
   </xacro:wheel_v0>
@@ -183,7 +183,7 @@
   </xacro:camera_v0>
 
   <!-- camera bracket-->
-  <xacro:camera_bracket_v0 prefix="main" parent="base_link_ext">
+  <xacro:camera_bracket_v0 prefix="main" parent="base_link">
     <origin xyz="0 0 0.039" rpy="0 0 1.570796" />
     <axis xyz="0 0 1" />
   </xacro:camera_bracket_v0>
@@ -201,6 +201,9 @@
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
     </plugin>
   </gazebo>
+
+  <!-- Base -->
+  <xacro:base_gazebo_v0 />
 
   <!-- Wheel -->
   <xacro:wheel_gazebo_v0 prefix="first" />
