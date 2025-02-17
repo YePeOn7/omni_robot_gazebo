@@ -53,8 +53,6 @@ class WaypointLoopState(smach.State):
     rospy.loginfo("Enter Idle State")
 
     while not rospy.is_shutdown():
-      print(f"status: {self.goalAction.getStatus()}, i: {self.iWp}")
-
       if(self.sharedData.state == State.IDLE):
         self.sharedData.state = State.IDLE
         self.goalAction.cancel()
@@ -71,7 +69,7 @@ class WaypointLoopState(smach.State):
 
         self.goalAction.moveToGoal(x, y, th)
       
-      rospy.sleep(0.5)
+      rospy.sleep(0.1)
 
     return "to_idle"
 

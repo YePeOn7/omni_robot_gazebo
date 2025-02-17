@@ -22,6 +22,8 @@
     <arg name="move_forward_only" value="$(arg move_forward_only)"/>
   </include>
 
+  <node name="navigation_sm" pkg="omni_robot_navigation" type="navigation_sm.py" output="screen"/>
+  
   <!-- rviz -->
   <node pkg="rviz" type="rviz" name="rviz" required="true" args="-d $(find omni_robot_navigation)/rviz/omni_robot_navigation.rviz"/>
 </launch>

@@ -75,7 +75,19 @@ roslaunch omni_robot_gazebo omni_maze.launch
 roslaunch omni_robot_navigation omni_robot_navigation_rviz.launch
 ```
 
-In the the Rviz, please use the **2D Nav Goal** tool to select the goal in the map and the robot will navigate there
+To choose the goal manually, in the the Rviz, please use the **2D Nav Goal** tool to select the goal in the map and the robot will navigate there.
+
+To perform automatic navigation to predefined points, you can publish to topic **/state_control** with value **waypoint**. Or you can use the following command
+
+```bash
+rostopic pub /state_control std_msgs/String "data: 'waypoint'"
+```
+
+To put back the robot into Idle mode, you can publish to topic **/state_control** with value **idle**. Or you can use the following command
+
+```bash
+rostopic pub /state_control std_msgs/String "data: 'idle'"
+```
 
 ![Navigarion Demo](gif/nav.gif)
 
